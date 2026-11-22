@@ -109,7 +109,7 @@
             <div class="s-card" style="flex:1"><div class="s-label">Pod dohledem</div><div class="s-num">6</div></div>
           </div>
           <div class="s-card">
-            <div class="s-row"><span class="s-label">Cíl vzdělávání</span><span class="s-label">24 / 50</span></div>
+            <div class="s-row"><span class="s-label">Osobní cíl</span><span class="s-label">24 / 50</span></div>
             <div class="s-bar" style="margin-top:8px"><i style="width:48%"></i></div>
           </div>
           <div class="s-tabbar" aria-hidden="true"><i></i><i></i><i class="on"></i><i></i><i></i></div>
@@ -161,8 +161,8 @@
       </article>
       <article class="area reveal">
         <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 13.5 13.5 8.5 15.5 10.5 10.5"/></svg></div>
-        <span class="badge badge-early">První verze</span>
-        <h3>Navigátor vzdělávání</h3><p>Porovnávejte zaznamenané zkušenosti s požadavky vašeho vzdělávacího programu.</p>
+        <span class="badge badge-plan">V plánu</span>
+        <h3>Navigátor vzdělávání</h3><p>Porovnávejte zaznamenané zkušenosti s oficiálními vzdělávacími programy. Už teď si v sekci Pokrok můžete nastavit vlastní osobní cíle.</p>
       </article>
       <article class="area reveal">
         <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
@@ -175,7 +175,7 @@
         <h3>Síť</h3><p>Objevujte profesní kontakty, vzdělávací akce a nové příležitosti.</p>
       </article>
     </div>
-    <div class="legend reveal" aria-label="Vysvětlivky stavu">
+    <div class="legend reveal" role="group" aria-label="Vysvětlivky stavu">
       <span class="badge badge-live">V betě</span> funguje v naší neveřejné testovací verzi
       <span class="badge badge-early">První verze</span> první části hotové, další přibudou
       <span class="badge badge-plan">V plánu</span> plánováno, zatím nehotové
@@ -191,8 +191,8 @@
       <h2 class="h2" id="how-title">Od zkušenosti k pokroku.</h2>
     </div>
     <ol class="flow" style="list-style:none;margin:0;padding:0">
-      <li class="step reveal"><span class="dot">01</span><h3>Příprava</h3><p>Před mytím si projděte vlastní poznámky a užitečné vzdělávací zdroje.</p></li>
-      <li class="step reveal"><span class="dot">02</span><h3>Záznam</h3><p>Zapište výkon rychle a soustředěně. Opakovaný výkon zaberete pár klepnutími.</p></li>
+      <li class="step reveal"><span class="dot">01</span><h3>Příprava</h3><p>Před výkonem si projděte vlastní poznámky a užitečné vzdělávací zdroje.</p></li>
+      <li class="step reveal"><span class="dot">02</span><h3>Záznam</h3><p>Zapište výkon rychle a soustředěně. Opakovaný výkon zaznamenáte pár klepnutími.</p></li>
       <li class="step reveal"><span class="dot">03</span><h3>Reflexe</h3><p>Zachyťte jeden poznatek, dokud je čerstvý, a později se k vlastním zkušenostem vraťte.</p></li>
       <li class="step reveal"><span class="dot">04</span><h3>Růst</h3><p>Sledujte trendy, milníky vzdělávání a v budoucnu i své profesní portfolio.</p></li>
     </ol>
@@ -209,12 +209,12 @@
     </div>
     <div class="showcase-grid">
       <div class="tabs" role="tablist" aria-label="Funkce NextBlade">
-        <button class="tab" role="tab" id="t-log" aria-controls="p-log" aria-selected="true"><strong>Rychlý logbook</strong><span class="badge badge-live">V betě</span><span class="desc">Vyberte nedávný výkon, potvrďte svou roli a uložte. Údaje z posledního podobného výkonu se předvyplní. Žádná pole pro identifikaci pacienta.</span></button>
-        <button class="tab" role="tab" id="t-prog" aria-controls="p-prog" aria-selected="false" tabindex="-1"><strong>Osobní analýza pokroku</strong><span class="badge badge-live">V betě</span><span class="desc">Počty výkonů podle role a období, vývoj operačního času, samostatnost v čase a milníky, vždy se srozumitelným shrnutím.</span></button>
-        <button class="tab" role="tab" id="t-nav" aria-controls="p-nav" aria-selected="false" tabindex="-1"><strong>Navigátor vzdělávání</strong><span class="badge badge-early">První verze</span><span class="desc">Nastavte si vlastní cíle i se zdrojem, podle kterého je sledujete, a vidíte vedle nich zaznamenané zkušenosti.</span></button>
-        <button class="tab" role="tab" id="t-hub" aria-controls="p-hub" aria-selected="false" tabindex="-1"><strong>Chytrý přehled výkonu</strong><span class="badge badge-plan">Koncept</span><span class="desc">Jedno místo pro každý výkon: vaše historie, poznámky a odkazy na ověřené vzdělávací zdroje.</span></button>
-        <button class="tab" role="tab" id="t-play" aria-controls="p-play" aria-selected="false" tabindex="-1"><strong>Osobní chirurgický playbook</strong><span class="badge badge-live">V betě</span><span class="desc">Vaše klíčové kroky, úskalí a zaměření pro každý výkon, spolu s posledními reflexemi před dalším výkonem.</span></button>
-        <button class="tab" role="tab" id="t-port" aria-controls="p-port" aria-selected="false" tabindex="-1"><strong>Profesní portfolio</strong><span class="badge badge-plan">Koncept</span><span class="desc">Strukturovaný přehled zaznamenaných zkušeností pro žádosti a kariérní milníky.</span></button>
+        <button type="button" class="tab" role="tab" id="t-log" aria-controls="p-log" aria-selected="true"><strong>Rychlý logbook</strong><span class="badge badge-live">V betě</span><span class="desc">Vyberte nedávný výkon, potvrďte svou roli a uložte. Údaje z posledního podobného výkonu se předvyplní. Žádná pole pro identifikaci pacienta.</span></button>
+        <button type="button" class="tab" role="tab" id="t-prog" aria-controls="p-prog" aria-selected="false" tabindex="-1"><strong>Osobní analýza pokroku</strong><span class="badge badge-live">V betě</span><span class="desc">Počty výkonů podle role a období, vývoj operačního času, samostatnost v čase a milníky, vždy se srozumitelným shrnutím.</span></button>
+        <button type="button" class="tab" role="tab" id="t-nav" aria-controls="p-nav" aria-selected="false" tabindex="-1"><strong>Osobní cíle vzdělávání</strong><span class="badge badge-live">V betě</span><span class="desc">Nastavte si vlastní cíle, poznamenejte si zdroj, podle kterého je sledujete, a vidíte vedle nich zaznamenané zkušenosti. Oficiální vzdělávací programy zatím nejsou součástí aplikace.</span></button>
+        <button type="button" class="tab" role="tab" id="t-hub" aria-controls="p-hub" aria-selected="false" tabindex="-1"><strong>Chytrý přehled výkonu</strong><span class="badge badge-plan">Koncept</span><span class="desc">Jedno místo pro každý výkon: vaše historie, poznámky a odkazy na ověřené vzdělávací zdroje.</span></button>
+        <button type="button" class="tab" role="tab" id="t-play" aria-controls="p-play" aria-selected="false" tabindex="-1"><strong>Osobní chirurgický playbook</strong><span class="badge badge-live">V betě</span><span class="desc">Vaše klíčové kroky, úskalí a zaměření pro každý výkon, spolu s posledními reflexemi před dalším výkonem.</span></button>
+        <button type="button" class="tab" role="tab" id="t-port" aria-controls="p-port" aria-selected="false" tabindex="-1"><strong>Profesní portfolio</strong><span class="badge badge-plan">Koncept</span><span class="desc">Strukturovaný přehled zaznamenaných zkušeností pro žádosti a kariérní milníky.</span></button>
       </div>
 
       <div class="stage">
@@ -251,9 +251,9 @@
           </div>
         </div>
         <div class="panel" role="tabpanel" id="p-nav" aria-labelledby="t-nav" hidden>
-          <div class="phone" role="img" aria-label="Ilustrativní obrazovka cílů vzdělávání">
+          <div class="phone" role="img" aria-label="Ilustrativní obrazovka osobních cílů">
             <div class="screen">
-              <div class="s-title">Cíle</div>
+              <div class="s-title">Moje cíle</div>
               <div class="s-sub">Zdroj: váš vlastní zápis, např. požadavky vzdělávacího programu</div>
               <div class="s-card"><div class="s-row"><span>Lap. cholecystektomie</span><span class="s-label">24 / 50</span></div><div class="s-bar" style="margin-top:8px"><i style="width:48%"></i></div></div>
               <div class="s-card"><div class="s-row"><span>Plastika tříselné kýly</span><span class="s-label">31 / 40</span></div><div class="s-bar" style="margin-top:8px"><i style="width:78%"></i></div></div>
@@ -318,7 +318,7 @@
       </ul>
       <p style="margin-top:28px"><span class="badge" style="background:rgba(255,255,255,.1);color:#DDE6E3">V plánu</span></p>
     </div>
-    <div class="chat reveal" aria-label="Ukázkové otázky">
+    <div class="chat reveal" role="group" aria-label="Ukázkové otázky">
       <p class="bubble q">Kolik laparoskopických cholecystektomií jsem letos zapsal jako operatér?</p>
       <p class="bubble q">Které výkony jsem v poslední době nezapsal?</p>
       <p class="bubble q">Jak se v čase měnila skladba mých výkonů?</p>
@@ -354,7 +354,7 @@
     <div class="priv-grid">
       <article class="priv reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-        <h3>Soukromé jako výchozí</h3><p>Vaše záznamy patří vám. V současné betě zůstávají ve vašem telefonu, chráněné Face ID, otiskem prstu nebo kódem zařízení.</p>
+        <h3>Soukromé jako výchozí</h3><p>V současné betě se vaše záznamy ukládají jen ve vašem telefonu. Cloud NextBlade zatím neexistuje. Zámek aplikace přes Face ID, otisk prstu nebo kód zařízení je ve výchozím stavu zapnutý, pokud ho máte v telefonu nastavený.</p>
       </article>
       <article class="priv reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg>
@@ -399,7 +399,8 @@
         <ul>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Osobní logbook</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Pokročilá analýza pokroku</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Navigátor vzdělávání</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Osobní cíle vzdělávání</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Navigátor vzdělávání <span class="muted">(plánováno)</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Osobní chirurgický playbook</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Profesní portfolio <span class="muted">(plánováno)</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Měsíční přehledy <span class="muted">(plánováno)</span></li>
@@ -481,11 +482,11 @@
         <p class="tag">Každý výkon o kousek lépe.</p>
       </div>
       <div>
-        <h4>Produkt</h4>
+        <h3 class="foot-h">Produkt</h3>
         <ul><li><a href="#platform">Platforma</a></li><li><a href="#features">Funkce</a></li><li><a href="#pricing">Cena</a></li><li><a href="#beta">Přidat se do bety</a></li></ul>
       </div>
       <div>
-        <h4>O nás</h4>
+        <h3 class="foot-h">O nás</h3>
         <ul><li><a href="#privacy">Soukromí</a></li><li><span>Podmínky (se spuštěním)</span></li><li><a href="../" hreflang="en" lang="en">English</a></li><li><a href="mailto:hello@nextblade.app">hello@nextblade.app</a></li></ul>
       </div>
     </div>

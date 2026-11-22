@@ -108,7 +108,7 @@
             <div class="s-card" style="flex:1"><div class="s-label">Supervised</div><div class="s-num">6</div></div>
           </div>
           <div class="s-card">
-            <div class="s-row"><span class="s-label">Training target</span><span class="s-label">24 / 50</span></div>
+            <div class="s-row"><span class="s-label">Personal target</span><span class="s-label">24 / 50</span></div>
             <div class="s-bar" style="margin-top:8px"><i style="width:48%"></i></div>
           </div>
           <div class="s-tabbar" aria-hidden="true"><i></i><i></i><i class="on"></i><i></i><i></i></div>
@@ -160,8 +160,8 @@
       </article>
       <article class="area reveal">
         <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polygon points="15.5 8.5 13.5 13.5 8.5 15.5 10.5 10.5"/></svg></div>
-        <span class="badge badge-early">Early version</span>
-        <h3>Training Navigator</h3><p>Keep track of documented experience against relevant training requirements.</p>
+        <span class="badge badge-plan">On the roadmap</span>
+        <h3>Training Navigator</h3><p>Keep track of documented experience against official training programmes. Today you can already set your own personal targets in Progress.</p>
       </article>
       <article class="area reveal">
         <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></svg></div>
@@ -174,7 +174,7 @@
         <h3>Network</h3><p>Discover professional connections, educational events, and future opportunities.</p>
       </article>
     </div>
-    <div class="legend reveal" aria-label="Status legend">
+    <div class="legend reveal" role="group" aria-label="Status legend">
       <span class="badge badge-live">In beta</span> working in our private test build
       <span class="badge badge-early">Early version</span> first parts built, more to come
       <span class="badge badge-plan">On the roadmap</span> planned, not built yet
@@ -208,12 +208,12 @@
     </div>
     <div class="showcase-grid">
       <div class="tabs" role="tablist" aria-label="NextBlade features">
-        <button class="tab" role="tab" id="t-log" aria-controls="p-log" aria-selected="true"><strong>Streamlined logbook</strong><span class="badge badge-live">In beta</span><span class="desc">Pick a recent procedure, confirm your role, save. Details from your last similar case are pre-filled. No patient identifier fields.</span></button>
-        <button class="tab" role="tab" id="t-prog" aria-controls="p-prog" aria-selected="false" tabindex="-1"><strong>Personal progress analytics</strong><span class="badge badge-live">In beta</span><span class="desc">Case counts by role and period, operative-time trends, autonomy over time and milestones, each with a plain-language summary.</span></button>
-        <button class="tab" role="tab" id="t-nav" aria-controls="p-nav" aria-selected="false" tabindex="-1"><strong>Training Navigator</strong><span class="badge badge-early">Early version</span><span class="desc">Set your own targets, with the source you're tracking against, and see documented experience next to them.</span></button>
-        <button class="tab" role="tab" id="t-hub" aria-controls="p-hub" aria-selected="false" tabindex="-1"><strong>Smart Procedure Hub</strong><span class="badge badge-plan">Concept</span><span class="desc">One place per procedure for your own history, notes and links to trusted educational resources.</span></button>
-        <button class="tab" role="tab" id="t-play" aria-controls="p-play" aria-selected="false" tabindex="-1"><strong>Personal Surgical Playbook</strong><span class="badge badge-live">In beta</span><span class="desc">Your own key steps, pitfalls and focus for each procedure, shown with your last reflections before the next case.</span></button>
-        <button class="tab" role="tab" id="t-port" aria-controls="p-port" aria-selected="false" tabindex="-1"><strong>Professional Portfolio</strong><span class="badge badge-plan">Concept</span><span class="desc">A structured summary of your documented experience for applications and career milestones.</span></button>
+        <button type="button" class="tab" role="tab" id="t-log" aria-controls="p-log" aria-selected="true"><strong>Streamlined logbook</strong><span class="badge badge-live">In beta</span><span class="desc">Pick a recent procedure, confirm your role, save. Details from your last similar case are pre-filled. No patient identifier fields.</span></button>
+        <button type="button" class="tab" role="tab" id="t-prog" aria-controls="p-prog" aria-selected="false" tabindex="-1"><strong>Personal progress analytics</strong><span class="badge badge-live">In beta</span><span class="desc">Case counts by role and period, operative-time trends, autonomy over time and milestones, each with a plain-language summary.</span></button>
+        <button type="button" class="tab" role="tab" id="t-nav" aria-controls="p-nav" aria-selected="false" tabindex="-1"><strong>Personal training targets</strong><span class="badge badge-live">In beta</span><span class="desc">Set your own targets, note the source you're tracking against, and see documented experience next to them. Official training programmes are not built in yet.</span></button>
+        <button type="button" class="tab" role="tab" id="t-hub" aria-controls="p-hub" aria-selected="false" tabindex="-1"><strong>Smart Procedure Hub</strong><span class="badge badge-plan">Concept</span><span class="desc">One place per procedure for your own history, notes and links to trusted educational resources.</span></button>
+        <button type="button" class="tab" role="tab" id="t-play" aria-controls="p-play" aria-selected="false" tabindex="-1"><strong>Personal Surgical Playbook</strong><span class="badge badge-live">In beta</span><span class="desc">Your own key steps, pitfalls and focus for each procedure, shown with your last reflections before the next case.</span></button>
+        <button type="button" class="tab" role="tab" id="t-port" aria-controls="p-port" aria-selected="false" tabindex="-1"><strong>Professional Portfolio</strong><span class="badge badge-plan">Concept</span><span class="desc">A structured summary of your documented experience for applications and career milestones.</span></button>
       </div>
 
       <div class="stage">
@@ -250,9 +250,9 @@
           </div>
         </div>
         <div class="panel" role="tabpanel" id="p-nav" aria-labelledby="t-nav" hidden>
-          <div class="phone" role="img" aria-label="Illustrative training targets screen">
+          <div class="phone" role="img" aria-label="Illustrative personal targets screen">
             <div class="screen">
-              <div class="s-title">Targets</div>
+              <div class="s-title">My targets</div>
               <div class="s-sub">Source: your own entry, e.g. your programme's requirements</div>
               <div class="s-card"><div class="s-row"><span>Lap. cholecystectomy</span><span class="s-label">24 / 50</span></div><div class="s-bar" style="margin-top:8px"><i style="width:48%"></i></div></div>
               <div class="s-card"><div class="s-row"><span>Inguinal hernia repair</span><span class="s-label">31 / 40</span></div><div class="s-bar" style="margin-top:8px"><i style="width:78%"></i></div></div>
@@ -317,7 +317,7 @@
       </ul>
       <p style="margin-top:28px"><span class="badge" style="background:rgba(255,255,255,.1);color:#DDE6E3">On the roadmap</span></p>
     </div>
-    <div class="chat reveal" aria-label="Example questions">
+    <div class="chat reveal" role="group" aria-label="Example questions">
       <p class="bubble q">How many laparoscopic cholecystectomies have I logged as primary surgeon this year?</p>
       <p class="bubble q">Which procedures have I not recorded recently?</p>
       <p class="bubble q">How has my documented case mix changed over time?</p>
@@ -353,7 +353,7 @@
     <div class="priv-grid">
       <article class="priv reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-        <h3>Private by default</h3><p>Your records are yours. In the current beta they stay on your phone, behind Face ID, fingerprint or your device passcode.</p>
+        <h3>Private by default</h3><p>In the current beta your records are stored only on your phone. There is no NextBlade cloud yet. An app lock using Face ID, fingerprint or your device passcode is on by default when your phone has one set up.</p>
       </article>
       <article class="priv reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg>
@@ -398,7 +398,8 @@
         <ul>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Personal logbook</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Advanced progress analytics</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Training Navigator</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Personal training targets</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Training Navigator <span class="muted">(planned)</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Personal Surgical Playbook</li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Professional portfolio <span class="muted">(planned)</span></li>
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FD1C3" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Monthly reviews <span class="muted">(planned)</span></li>
@@ -480,11 +481,11 @@
         <p class="tag">Every case, a little better.</p>
       </div>
       <div>
-        <h4>Product</h4>
+        <h3 class="foot-h">Product</h3>
         <ul><li><a href="#platform">Platform</a></li><li><a href="#features">Features</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#beta">Join the beta</a></li></ul>
       </div>
       <div>
-        <h4>Company</h4>
+        <h3 class="foot-h">Company</h3>
         <ul><li><a href="#privacy">Privacy</a></li><li><span>Terms (coming with launch)</span></li><li><a href="cs/" hreflang="cs" lang="cs">Česky</a></li><li><a href="mailto:hello@nextblade.app">hello@nextblade.app</a></li></ul>
       </div>
     </div>
