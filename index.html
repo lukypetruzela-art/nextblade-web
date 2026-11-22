@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NextBlade – the personal training log for surgeons</title>
 <meta name="description" content="Log a case in 15 seconds, watch your learning curve, track outcomes and X-rays. NextBlade is the personal training log for surgeons. Every case, a little better.">
+<link rel="icon" type="image/svg+xml" href="assets/icon.svg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/icon.png">
 <meta property="og:title" content="NextBlade – every case, a little better">
@@ -37,7 +38,8 @@ section{padding:96px 0}
 /* nav */
 header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
-.nav img{height:30px;width:auto;display:block}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.02em}
+.brand img{height:34px;width:34px;display:block;border-radius:8px}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{color:var(--ink);text-decoration:none;font-weight:500;font-size:15px}
 .nav-links a:hover{color:var(--teal)}
@@ -143,14 +145,14 @@ details p{margin-top:10px;color:#34433F;max-width:760px}
 
 footer{border-top:1px solid var(--line);padding:40px 0;font-size:14px;color:var(--muted)}
 .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
-.foot img{height:24px;width:auto}
+.foot .brand{font-size:17px}.foot .brand img{height:26px;width:26px;border-radius:6px}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <a href="#top" aria-label="NextBlade home"><img src="assets/logo-mark.png" alt="NextBlade"></a>
+    <a href="#top" class="brand" aria-label="NextBlade home"><img src="assets/icon.svg" alt=""><span>NextBlade</span></a>
     <nav class="nav-links" aria-label="Main">
       <a href="#how">How it works</a>
       <a href="#features">Features</a>
@@ -388,7 +390,7 @@ footer{border-top:1px solid var(--line);padding:40px 0;font-size:14px;color:var(
 
 <footer>
   <div class="wrap foot">
-    <img src="assets/logo-mark.png" alt="NextBlade">
+    <span class="brand"><img src="assets/icon.svg" alt=""><span>NextBlade</span></span>
     <span>© 2026 NextBlade · <a href="mailto:hello@nextblade.app">hello@nextblade.app</a> · <a href="#">Privacy policy</a></span>
   </div>
 </footer>

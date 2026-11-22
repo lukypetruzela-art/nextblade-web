@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="38 38 1178 1178">
+  <rect x="38" y="38" width="1178" height="1178" rx="270" fill="#0F766E"/>
+  <g fill="#fff">
+    <!-- handle -->
+    <line x1="218" y1="942" x2="478" y2="789" stroke="#fff" stroke-width="96" stroke-linecap="round"/>
+    <!-- blade -->
+    <path d="M548 703 L790 637 C 760 715, 702 768, 630 772 C 602 774, 582 782, 565 793 C 570 768, 556 735, 530 718 C 536 710, 542 706, 548 703 Z"/>
+    <!-- incision becoming growth arrow (tapered) -->
+    <path d="M818 625 C 900 580, 958 500, 972 390 L 1040 390 C 1020 510, 940 615, 818 648 C 812 640, 812 632, 818 625 Z"/>
+    <path d="M895 388 L1007 232 L1113 388 Z"/>
+  </g>
+</svg>
