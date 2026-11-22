@@ -6,7 +6,7 @@
   // Paste your form endpoint here (e.g. https://formspree.io/f/abcd1234).
   // While it is empty, the form does NOT pretend to register anyone: it opens
   // the visitor's email app with the details pre-filled instead.
-  var FORM_ENDPOINT = '';
+  var FORM_ENDPOINT = 'https://formspree.io/f/mppdoaaq';
   var CONTACT_EMAIL = 'hello@nextblade.app';
 
   var CS = (document.documentElement.lang || 'en').indexOf('cs') === 0;
