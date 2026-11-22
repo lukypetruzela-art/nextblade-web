@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NextBlade – the personal training log for surgeons</title>
+<meta name="description" content="Log a case in 15 seconds, watch your learning curve, track outcomes and X-rays. NextBlade is the personal training log for surgeons. Every case, a little better.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
+<meta property="og:title" content="NextBlade – every case, a little better">
+<meta property="og:description" content="The personal training log for surgeons: 15-second logging, learning curves, outcomes and X-ray timelines.">
+<meta property="og:image" content="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0F766E; --teal-dark:#0B5A54; --ink:#10201D; --muted:#4B5A56; --mint:#E6F2F0;
+  --paper:#F6F7F5; --line:#DDE3E0; --white:#FFFFFF;
+  --radius:18px; --max:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Space Grotesk',Inter,sans-serif;letter-spacing:-0.02em;line-height:1.1;margin:0}
+p{margin:0}
+a{color:var(--teal)}a:hover{color:var(--teal-dark)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:14px;font-weight:600;font-size:16px;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--teal);color:#fff}.btn-primary:hover{background:var(--teal-dark);color:#fff}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}.btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+section{padding:96px 0}
+.section-head{max-width:680px;margin-bottom:48px;display:flex;flex-direction:column;gap:12px}
+.section-head h2{font-size:clamp(30px,4vw,42px)}
+.section-head p{font-size:18px;color:var(--muted)}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.nav img{height:30px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{color:var(--ink);text-decoration:none;font-weight:500;font-size:15px}
+.nav-links a:hover{color:var(--teal)}
+@media (max-width:820px){.nav-links a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding:72px 0 88px;background:linear-gradient(180deg,var(--white),var(--paper))}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(42px,6vw,68px);margin:16px 0 20px}
+.hero h1 span{color:var(--teal)}
+.hero .lead{font-size:20px;color:#34433F;max-width:560px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero-note{margin-top:18px;font-size:14px;color:var(--muted)}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.phone{margin:0 auto}}
+
+.phone{width:300px;border-radius:44px;background:var(--ink);padding:12px;box-shadow:0 30px 60px rgba(16,32,29,.18)}
+.screen{border-radius:34px;background:var(--paper);padding:22px 16px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}
+.screen .title{font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:18px}
+.screen .sub{font-size:12px;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px}
+.kpi b{font-family:'Space Grotesk',Inter,sans-serif;font-size:18px;display:block}
+.kpi span{font-size:10px;color:var(--muted)}
+.fake-btn{background:var(--teal);color:#fff;border-radius:12px;height:42px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px}
+
+/* problem */
+.problem{background:var(--ink);color:#fff}
+.problem .section-head p{color:#C7D2CF}
+.problem .eyebrow{color:#7DD3C0}
+.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pain{border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:24px}
+.pain h3{font-size:20px;margin-bottom:8px}
+.pain p{color:#C7D2CF}
+@media (max-width:820px){.pains{grid-template-columns:1fr}}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+.step{background:var(--paper);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:10px}
+.step .num{width:36px;height:36px;border-radius:10px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Space Grotesk',Inter,sans-serif}
+.step h3{font-size:20px}
+.step p{color:var(--muted);font-size:15px}
+@media (max-width:960px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* features */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feature{border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:10px;background:#fff}
+.feature svg{width:28px;height:28px}
+.feature h3{font-size:19px}
+.feature p{color:var(--muted);font-size:15px}
+@media (max-width:960px){.features{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.features{grid-template-columns:1fr}}
+
+/* privacy */
+.privacy{background:var(--mint)}
+.privacy-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.privacy ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+.privacy li{display:flex;gap:12px;align-items:flex-start;font-size:17px}
+.privacy li svg{flex-shrink:0;margin-top:3px}
+@media (max-width:820px){.privacy-grid{grid-template-columns:1fr}}
+
+/* founder */
+.founder{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;background:var(--paper);border-radius:24px;padding:40px}
+.founder img{width:96px;height:96px;border-radius:22px}
+.founder blockquote{margin:0;font-family:'Space Grotesk',Inter,sans-serif;font-size:clamp(22px,2.6vw,28px);line-height:1.3;letter-spacing:-0.01em}
+.founder cite{display:block;margin-top:14px;font-style:normal;color:var(--muted);font-size:15px}
+@media (max-width:640px){.founder{grid-template-columns:1fr;padding:28px}}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.plan{border:1px solid var(--line);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px;background:#fff}
+.plan.highlight{border:2px solid var(--teal);box-shadow:0 18px 40px rgba(15,118,110,.12)}
+.plan h3{font-size:22px}
+.plan .price{font-family:'Space Grotesk',Inter,sans-serif;font-size:30px;font-weight:700}
+.plan ul{margin:0;padding-left:18px;color:#34433F;display:flex;flex-direction:column;gap:6px;flex:1}
+.badge{align-self:flex-start;background:var(--mint);color:var(--teal-dark);font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+
+/* beta form */
+.beta{background:var(--ink);color:#fff}
+.beta-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.beta h2{font-size:clamp(32px,4vw,44px);margin:12px 0 16px}
+.beta p{color:#C7D2CF;font-size:18px}
+.beta .eyebrow{color:#7DD3C0}
+form{background:#fff;color:var(--ink);border-radius:22px;padding:28px;display:grid;gap:14px}
+label{font-size:14px;font-weight:600;display:flex;flex-direction:column;gap:6px}
+input,select{height:48px;border-radius:12px;border:1px solid #C9D3CF;padding:0 14px;font:inherit;font-weight:400;color:var(--ink);background:#fff}
+input:focus,select:focus{outline:2px solid var(--teal);outline-offset:1px}
+.check{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;font-size:14px;color:#34433F}
+.check input{height:20px;width:20px;margin-top:2px;flex-shrink:0}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-note{font-size:12px;color:var(--muted)}
+.thanks{display:none;background:var(--mint);color:var(--teal-dark);border-radius:12px;padding:14px;font-weight:600}
+@media (max-width:820px){.beta-grid,.form-row{grid-template-columns:1fr}}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--teal);font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:#34433F;max-width:760px}
+
+footer{border-top:1px solid var(--line);padding:40px 0;font-size:14px;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+.foot img{height:24px;width:auto}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" aria-label="NextBlade home"><img src="assets/logo-mark.png" alt="NextBlade"></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#pricing">Pricing</a>
+      <a class="btn btn-primary" href="#beta">Join the beta</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">For surgeons · Residents to consultants</span>
+      <h1>Every case,<br><span>a little better.</span></h1>
+      <p class="lead">NextBlade is the personal training log for surgeons. Log a case in 15 seconds, see your learning curve, follow up outcomes and keep your X-rays on a timeline, without storing a single patient identifier.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#beta">Join the beta</a>
+        <a class="btn btn-ghost" href="#how">See how it works</a>
+      </div>
+      <p class="hero-note">Built by a practising surgeon. General surgery and trauma first.</p>
+    </div>
+
+    <div class="phone" role="img" aria-label="NextBlade app screen showing a learning curve for laparoscopic cholecystectomy">
+      <div class="screen">
+        <div>
+          <div class="title">Lap cholecystectomy</div>
+          <div class="sub">30 cases · 24 as surgeon</div>
+        </div>
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:12px;font-weight:600">
+            <span>Operative time</span><span style="font-family:'Space Grotesk',Inter,sans-serif;color:var(--teal);font-size:15px">98 → 59 min</span>
+          </div>
+          <svg viewBox="0 0 330 150" width="100%" aria-hidden="true">
+            <line x1="10" y1="140" x2="325" y2="140" stroke="#B9C4C0"></line>
+            <g fill="#A9BAB5"><circle cx="20" cy="32" r="3.5"/><circle cx="30" cy="43" r="3.5"/><circle cx="40" cy="27" r="3.5"/><circle cx="50" cy="51" r="3.5"/><circle cx="60" cy="47" r="3.5"/><circle cx="70" cy="56" r="3.5"/><circle cx="80" cy="40" r="3.5"/><circle cx="90" cy="66" r="3.5"/><circle cx="100" cy="60" r="3.5"/><circle cx="110" cy="69" r="3.5"/><circle cx="120" cy="62" r="3.5"/><circle cx="130" cy="75" r="3.5"/><circle cx="140" cy="71" r="3.5"/><circle cx="150" cy="80" r="3.5"/><circle cx="160" cy="67" r="3.5"/><circle cx="170" cy="84" r="3.5"/><circle cx="180" cy="88" r="3.5"/><circle cx="190" cy="78" r="3.5"/><circle cx="200" cy="91" r="3.5"/><circle cx="210" cy="86" r="3.5"/><circle cx="220" cy="95" r="3.5"/><circle cx="230" cy="90" r="3.5"/><circle cx="240" cy="99" r="3.5"/><circle cx="250" cy="93" r="3.5"/><circle cx="260" cy="103" r="3.5"/><circle cx="270" cy="97" r="3.5"/><circle cx="280" cy="106" r="3.5"/><circle cx="290" cy="101" r="3.5"/><circle cx="300" cy="108" r="3.5"/></g>
+            <path d="M20 36 C 100 60, 200 94, 310 106" fill="none" stroke="#0F766E" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="310" cy="105" r="6" fill="#0F766E"/>
+          </svg>
+          <div style="font-size:11px;color:#34433F">Your average time dropped from 87 to 61 min over the last 20 cases.</div>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><b>1/30</b><span>complications</span></div>
+          <div class="kpi"><b>2/30</b><span>conversions</span></div>
+          <div class="kpi"><b>30 %</b><span>supervision only</span></div>
+        </div>
+        <div class="fake-btn">+ Log case</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="problem">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The problem</span>
+      <h2>Logging is mandatory. Learning from it isn't.</h2>
+      <p>Surgeons record hundreds of operations a year, and get almost nothing back from it.</p>
+    </div>
+    <div class="pains">
+      <div class="pain"><h3>Tedious</h3><p>Official logbooks are slow and clunky, so cases get logged late, in batches, or not at all.</p></div>
+      <div class="pain"><h3>No feedback</h3><p>A list of numbers doesn't tell you whether you're getting faster, safer or more independent.</p></div>
+      <div class="pain"><h3>Outcomes lost</h3><p>You rotate, the patient goes home, and you never learn how the case really ended.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>A learning loop around every operation.</h2>
+      <p>Four small habits that turn routine logging into deliberate practice.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Prepare</h3><p>Open your personal playbook for the procedure: your key steps, pitfalls and today's focus. Readable in 30 seconds.</p></div>
+      <div class="step"><div class="num">2</div><h3>Log</h3><p>Dictate or tap. Pre-filled from your last case, done in about 15 seconds, works offline in the corridor.</p></div>
+      <div class="step"><div class="num">3</div><h3>Follow up</h3><p>A reminder on day 14 and 30: any complication? One tap closes the loop on every patient.</p></div>
+      <div class="step"><div class="num">4</div><h3>Progress</h3><p>See your learning curve, autonomy and outcomes per procedure, and your X-rays side by side over time.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="features" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Features</span>
+      <h2>Everything a logbook should have been.</h2>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v1a7 7 0 0 0 14 0v-1"/><line x1="12" y1="18" x2="12" y2="22"/></svg>
+        <h3>15-second logging</h3><p>Voice or one tap, smart defaults from your last case, offline-first.</p>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg>
+        <h3>Learning curves</h3><p>Operative time, conversions and complications per procedure, with a plain-language insight under every chart.</p>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>
+        <h3>Outcome follow-up</h3><p>Automatic reminders and Clavien-Dindo grading, so you finally know how your patients did.</p>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="8" height="16" rx="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5"/></svg>
+        <h3>X-ray &amp; laparoscopy timeline</h3><p>Pre-op, post-op and follow-up images side by side, with angle measurements. Auto-anonymized on your phone.</p>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <h3>Personal playbooks</h3><p>Your own steps, pitfalls and tips from your supervisors, shown before the next time you operate.</p>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <h3>Yours for your whole career</h3><p>Export to CSV and PDF anytime, in formats ready for training logbooks and credentialing. Free, always.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="privacy" class="privacy">
+  <div class="wrap privacy-grid">
+    <div class="section-head" style="margin-bottom:0">
+      <span class="eyebrow">Private by design</span>
+      <h2>No patient names. No IDs. Ever.</h2>
+      <p>NextBlade is built so that sensitive data never enters the app in the first place.</p>
+    </div>
+    <ul>
+      <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Only age band, procedure, role and outcome are stored.</li>
+      <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Text on X-rays is detected and blacked out on your device before anything is saved.</li>
+      <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Encrypted, EU-hosted backup. We never sell your data.</li>
+      <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F766E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>For personal education and documentation only, not for clinical decisions.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="founder">
+      <img src="assets/icon.png" alt="">
+      <div>
+        <blockquote>“I built NextBlade because I wanted to see whether I was actually getting better after every operation, not just how many I'd done.”</blockquote>
+        <cite>[Your name], surgeon and founder of NextBlade</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>Free to log. Pro to grow.</h2>
+      <p>Logging and exporting your data stays free, forever.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free</h3>
+        <div class="price">$0</div>
+        <ul><li>Unlimited case logging</li><li>Basic statistics</li><li>Personal playbooks</li><li>CSV export</li></ul>
+        <a class="btn btn-ghost" href="#beta">Join the beta</a>
+      </div>
+      <div class="plan highlight">
+        <span class="badge">Most popular</span>
+        <h3>Pro</h3>
+        <div class="price">[PRICE] <span style="font-size:15px;font-weight:500;color:var(--muted)">/ month</span></div>
+        <ul><li>Voice logging</li><li>Learning curves &amp; outcome analytics</li><li>X-ray &amp; laparoscopy timeline</li><li>Encrypted cloud backup &amp; sync</li><li>PDF reports for training &amp; credentialing</li></ul>
+        <a class="btn btn-primary" href="#beta">Get early access</a>
+      </div>
+      <div class="plan">
+        <span class="badge">Limited</span>
+        <h3>Founder</h3>
+        <div class="price">[PRICE] <span style="font-size:15px;font-weight:500;color:var(--muted)">once</span></div>
+        <ul><li>Pro, for life</li><li>Only for the first [500] surgeons</li><li>Direct line to the founder</li><li>Shape the roadmap</li></ul>
+        <a class="btn btn-ghost" href="#beta">Reserve a spot</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="beta" class="beta">
+  <div class="wrap beta-grid">
+    <div>
+      <span class="eyebrow">Early access</span>
+      <h2>Join the NextBlade beta.</h2>
+      <p>We're inviting surgeons in general surgery and trauma first. Tell us a little about you and we'll be in touch when your invite is ready.</p>
+    </div>
+    <!-- Replace YOUR_FORM_ID with your Formspree (or other form service) ID -->
+    <form id="beta-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-row">
+        <label>Name<input name="name" type="text" autocomplete="name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <div class="form-row">
+        <label>Specialty
+          <select name="specialty" required>
+            <option value="">Select…</option>
+            <option>General surgery</option>
+            <option>Trauma / orthopaedics</option>
+            <option>Other surgical specialty</option>
+          </select>
+        </label>
+        <label>Training level
+          <select name="level" required>
+            <option value="">Select…</option>
+            <option>Medical student</option>
+            <option>Resident / trainee</option>
+            <option>Fellow</option>
+            <option>Consultant / attending</option>
+          </select>
+        </label>
+      </div>
+      <label>Country<input name="country" type="text" autocomplete="country-name" required></label>
+      <label class="check"><input type="checkbox" name="founder" value="yes">I'm interested in a Founder licence.</label>
+      <label class="check"><input type="checkbox" name="consent" required>I agree that NextBlade may email me about the beta. No spam, unsubscribe anytime.</label>
+      <button class="btn btn-primary" type="submit">Request an invite</button>
+      <div class="thanks" id="thanks" role="status">Thank you! You're on the list.</div>
+      <p class="form-note">We only use your details to contact you about NextBlade.</p>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">FAQ</span><h2>Questions</h2></div>
+    <details><summary>Does NextBlade store patient data?</summary><p>No. The app is designed to work without names, birth dates, record numbers or any other identifier. Images are anonymized on your phone before they are saved.</p></details>
+    <details><summary>Does it replace my official logbook (ACGME, eLogbook, national systems)?</summary><p>No, it works alongside them. NextBlade is your personal training companion; you can export your cases in formats that make filling in official logbooks faster.</p></details>
+    <details><summary>Is it a medical device?</summary><p>No. NextBlade is for personal education and documentation. It does not give clinical recommendations or assess images.</p></details>
+    <details><summary>Which platforms will it support?</summary><p>iPhone and Android, with the beta starting on [PLATFORM / DATE].</p></details>
+    <details><summary>Which specialties are supported?</summary><p>General surgery and trauma/orthopaedics first, with more specialties added based on demand.</p></details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="assets/logo-mark.png" alt="NextBlade">
+    <span>© 2026 NextBlade · <a href="mailto:hello@nextblade.app">hello@nextblade.app</a> · <a href="#">Privacy policy</a></span>
+  </div>
+</footer>
+
+<script>
+  // Show a thank-you message when the form service accepts the submission (Formspree supports AJAX).
+  (function () {
+    var form = document.getElementById('beta-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      if (form.action.indexOf('YOUR_FORM_ID') !== -1) { e.preventDefault(); document.getElementById('thanks').style.display = 'block'; return; }
+      e.preventDefault();
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (r) { if (r.ok) { form.reset(); document.getElementById('thanks').style.display = 'block'; } else { alert('Something went wrong. Please email hello@nextblade.app'); } })
+        .catch(function () { alert('Something went wrong. Please email hello@nextblade.app'); });
+    });
+  })();
+</script>
+</body>
+</html>
